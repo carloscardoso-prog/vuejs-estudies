@@ -9,13 +9,14 @@
 
 <body>
     <div id="app">
-        <p v-once>{{ title }}</p> <!-- this directive (non reserved HTMl attribute) 
+        <p v-once>{{ titulo }}</p> <!-- this directive (non reserved HTMl attribute) 
             writes down dynamic JAVASCRIPT data, but makes it become static. The other 
         instances stays dynamic -->
         <p>{{ hiEtc() }}</p>
-        <p>{{ title }}</p>
-        <p v-once>{{ title }}</p>
+        <p>{{ titulo }}</p>
         <a v-bind:href="siteGoogle">search</a>
+        <p>{{ title }}</p>
+        <input type="text" v-on:input="jax()">
     </div>
 </body>
 
@@ -25,12 +26,16 @@
         el: "#app",
         data: {
             title: "test",
-            siteGoogle: "https://www.google.com.br/"
+            siteGoogle: "https://www.google.com.br/",
+            titulo: "oi"
         },
         methods: {
             hiEtc() {
                 this.title = 'i dont wanna leave you';
                 return this.title;
+            },
+            jax() {
+                this.titulo = event.target.value
             }
         }
     });
