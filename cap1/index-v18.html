@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ foo }}</p>
+        <!-- não irá atualizar mais o `foo`! -->
+        <button v-on:click="foo = 'biz'">Muda pra biz!</button>
+    </div>
+</body>
+
+<script>
+    var obj = {
+        foo: 'bar'
+    }
+
+    Object.freeze(obj)
+
+    new Vue({
+        el: '#app',
+        data: obj
+    })
+</script>
+
+</html>

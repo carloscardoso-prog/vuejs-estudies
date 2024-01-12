@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="section">
+        <objeto-todo v-for="item in todos" :thatsall="item" :key="item.id"></objeto-todo>
+    </div>
+</body>
+
+<script>
+    Vue.component("objeto-todo", {
+        props: ['thatsall'],
+        template: "<p>{{ thatsall.texto }}</p>"
+    });
+
+    new Vue({
+        el: ".section",
+        data: {
+            todos: [{
+                id: 1,
+                texto: "thats all"
+            }, {
+                id: 2,
+                texto: "thats all"
+            }, {
+                id: 3,
+                texto: "thats all"
+            }, {
+                id: 4,
+                texto: "thats all"
+            }]
+        }
+    });
+</script>
+
+</html>

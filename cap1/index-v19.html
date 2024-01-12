@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<script>
+    var data = {
+        a: 1
+    }
+
+    var vm = new Vue({
+        el: '#exemplo',
+        data: data
+    })
+
+    vm.$el === document.getElementById('exemplo'); //true
+    vm.$data === true; // true
+
+    vm.$watch('a', function(newValue, oldValue) {
+        console.log("jax");
+    });
+</script>
+
+</html>

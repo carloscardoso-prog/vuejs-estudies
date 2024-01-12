@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="section">
+        <p>{{ reativo }}</p>
+    </div>
+</body>
+
+<script>
+    var data = {
+        "numero": 1,
+        "reativo": "jax"
+    };
+
+    var vuejs = new Vue({
+        el: ".section",
+        data: data
+    })
+</script>
+
+</html>
