@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="section">
+        <p>{{ oi }}</p>
+        <p v-bind:id="id">Sei la</p>
+        <button v-bind:disabled="trueButton">Botão</button>
+        <button v-bind:disabled="falseButton">Botão</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: ".section",
+        data: {
+            oi: "Olá!",
+            id: "IdTag",
+            trueButton: true,
+            falseButton: false
+        }
+    });
+</script>
+
+</html>

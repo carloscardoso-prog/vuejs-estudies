@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<style>
+    .azul {
+        color: blue;
+    }
+</style>
+
+<body>
+    <div class="section">
+        <p class="azul" v-on:[argumentoAcao]="mudaPraAzul">TextoBacana</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: ".section",
+        data: {
+            argumentoAcao: "click",
+            bar: "jax"
+        },
+        methods: {
+            mudaPraAzul() {
+                // código aqui
+            }
+        }
+    });
+</script>
+
+</html>

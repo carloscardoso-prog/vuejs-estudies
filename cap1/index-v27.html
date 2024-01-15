@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Loadash is here only because its in the DOCS -->
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <div class="section">
+        <p>Faça sua pergunta:</p>
+        <input type="text" v-model="pergunta">
+        <p>{{ resposta }}</p>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: ".section",
+        data: {
+            pergunta: "",
+            resposta: "Pergunte!"
+        },
+        watch: {
+            pergunta: function(novaPergunta, perguntaAntiga) {
+                this.resposta = "Aguardando você terminar de escrever...";
+                this.aguardarResposta();
+            }
+        },
+        created: function() {
+            this.aguardarResposta = _.debounce(this.getResposta, 500);
+        },
+        methods: {
+            getResposta: function() {
+                if (this.pergunta.indexOf('?') === -1) {
+                    this.resposta = "Cadê a interrogação?";
+                    return
+                }
+
+                this.resposta = "Pensando..."
+                var vm = this;
+
+                axios.get('https://yesno.wtf/api')
+                    .then(function(result) {
+                        vm.resposta = result.data.answer === "yes" ? "Sim" :
+                            result.data.answer === "no" ? "Não" : "Talvez :P";
+                    }).catch(function(error) {
+                        vm.resposta = "Erro ao tentar se conectar na API! \nErro:" + error;
+                    })
+            }
+        },
+    });
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <div class="section">
+        <p>{{ message }}</p>
+        <p>{{ reversedMessage }}</p>
+        <p>{{ getDateComputed }} Runs when the computed data changes</p>
+        <p>{{ getDateMethod() }} Runs when the method is called</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: ".section",
+        data: {
+            message: "Oie!"
+        },
+        methods: {
+            getDateMethod: function() {
+                return Date.now();
+            }
+        },
+        computed: {
+            reversedMessage: function() {
+                return this.message.split('').reverse().join('');
+            },
+            getDateComputed: function() {
+                return Date.now();
+            }
+        }
+    });
+</script>
+
+</html>

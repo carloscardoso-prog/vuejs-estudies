@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="section">
+        <p>{{ numero +1 }}</p>
+        <p>{{ numeroTexto + 1 }}</p>
+        <p>{{ ok? "SIM" : "NÃO" }}</p>
+        <p v-bind:id="'lista-' + idList">NEON!</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: ".section",
+        data: {
+            numero: 1,
+            numeroTexto: "1",
+            ok: false,
+            idList: "jax"
+        }
+    });
+</script>
+
+</html>

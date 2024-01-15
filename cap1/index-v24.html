@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <div class="section">
+        <form v-on:submit.prevent="onsubmit">
+            <input type="text">
+            <button type="submit">Submit!</button>
+        </form>
+        <!-- : is for binds, v-bind:href="attr", :href="attr", :[object]="attr" all works for binds-->
+        <!-- @ is for on/listeners, v-on:click, @click="doSmth", @[click]="doSmth" -->
+    </div>
+</body>
+<script>
+    new Vue({
+        el: ".section",
+        data: {
+
+        },
+        methods: {
+            onsubmit() {
+                console.log("oie!")
+            }
+        }
+    });
+</script>
+
+</html>
